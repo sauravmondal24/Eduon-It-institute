@@ -41,7 +41,7 @@ const Header = () => {
 							</li>
 						</ul>
 					</div>
-					<Link className="btn btn-ghost normal-case text-xl">
+					<Link to="/" className="btn btn-ghost normal-case text-xl">
 						<img src={Logo} alt="" />
 					</Link>
 				</div>
