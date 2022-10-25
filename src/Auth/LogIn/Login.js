@@ -1,7 +1,22 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FaGoogle } from 'react-icons/fa';
+import { useContext } from 'react';
+import { AuthContext } from '../../Context/AuthProvider';
+import { GoogleAuthProvider } from 'firebase/auth';
 
 const Login = () => {
+	const { googleProviderLogin } = useContext(AuthContext);
+
+	const googleAuthProvider = new GoogleAuthProvider();
+	const handleGoogleSignIn = () => {
+		googleProviderLogin(googleAuthProvider)
+			.then((result) => {
+				const user = result.user;
+				console.log(user);
+			})
+			.catch((error) => console.error('error', error));
+	};
 	return (
 		<div>
 			<div className="hero min-h-screen bg-base-200">
@@ -38,6 +53,15 @@ const Login = () => {
 							</div>
 							<div className="form-control mt-6">
 								<button className="btn btn-primary">Login</button>
+							</div>
+							<div className="form-control mt-6">
+								<button
+									onClick={handleGoogleSignIn}
+									className="btn btn-outline btn-primary"
+								>
+									<FaGoogle />
+									Create an account with Google
+								</button>
 							</div>
 						</div>
 					</div>
