@@ -6,6 +6,7 @@ import Courses from '../components/Courses/Courses';
 import FAQ from '../components/FAQ/FAQ';
 import Home from '../components/Home/Home';
 import Main from '../Layout/Main';
+import PrivateRoute from './Private/PrivateRoute';
 
 export const routes = createBrowserRouter([
 	{
@@ -26,7 +27,11 @@ export const routes = createBrowserRouter([
 			},
 			{
 				path: '/courses',
-				element: <Courses></Courses>
+				element: (
+					<PrivateRoute>
+						<Courses></Courses>
+					</PrivateRoute>
+				)
 			},
 			{
 				path: '/faq',

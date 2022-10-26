@@ -3,9 +3,18 @@ import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import Logo from '../../Assets/img/logo.png';
 import { AuthContext } from '../../Context/AuthProvider';
+import { FaUser } from 'react-icons/fa';
 
 const Header = () => {
-	const { user } = useContext(AuthContext);
+	const { user, logOut } = useContext(AuthContext);
+
+	const handleLogOut = () => {
+		logOut()
+			.then(() => {})
+			.catch((error) => {
+				console.error(error);
+			});
+	};
 	return (
 		<div className="container-md">
 			<div className="navbar bg-sky-200 py-4">
@@ -77,16 +86,51 @@ const Header = () => {
 					<div>
 						<Link className="btn btn-secondary mx-4">Download</Link>
 					</div>
-					<div className="btn-group btn-group-horizontal lg:btn-group-horizontal">
+					{/* <div className="btn-group btn-group-horizontal lg:btn-group-horizontal">
 						<Link to="/login" className="btn  btn-active ">
 							LogIn
 						</Link>
 						<Link to="signup" className="btn">
 							SignUp
 						</Link>
-					</div>
+					</div> */}
 					<div>
-						<Link>{user?.displayName}</Link>
+						<div>
+							{user ? (
+								<>
+									<span>{user?.displayName}</span>
+									<button onClick={handleLogOut} className="btn btn-warning">
+										LogOut
+									</button>
+								</>
+							) : (
+								<>
+									<div className="btn-group btn-group-horizontal lg:btn-group-horizontal">
+										<Link to="/login" className="btn  btn-active ">
+											LogIn
+										</Link>
+										<Link to="signup" className="btn">
+											SignUp
+										</Link>
+									</div>
+								</>
+							)}
+						</div>
+					</div>
+
+					<div className="text-center">
+						<Link>
+							{user?.photoURL ? (
+								<img
+									className="mask mask-circle"
+									style={{ height: '30px' }}
+									src={user.photoURL}
+									alt=""
+								/>
+							) : (
+								<FaUser></FaUser>
+							)}
+						</Link>
 					</div>
 				</div>
 			</div>
