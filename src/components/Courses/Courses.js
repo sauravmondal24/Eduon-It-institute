@@ -1,12 +1,11 @@
 import React from 'react';
-import { useEffect } from 'react';
-import { useState } from 'react';
-import CategoryList from './CategoryList';
+import { useLoaderData } from 'react-router-dom';
+import CourseItem from './CourseItem';
 import './Courses.css';
 import LeftSideBar from './LeftSideBar';
 
 const Courses = () => {
-	const [categories, setCategories] = useState([]);
+	const AllCategories = useLoaderData();
 
 	const BannerImg = {
 		backgroundImage:
@@ -17,11 +16,6 @@ const Courses = () => {
 		backgroundRepeat: 'no-repeat'
 	};
 
-	useEffect(() => {
-		fetch('http://localhost:5000/course-category')
-			.then((res) => res.json())
-			.then((data) => setCategories(data));
-	}, []);
 	return (
 		<div className="bg-cyan-600">
 			<div style={BannerImg}>
@@ -31,17 +25,18 @@ const Courses = () => {
 			</div>
 
 			<div className="container">
-				<div className="row">
-					<div className=" grid grid-cols-4">
+				<div className="coursePage py-20">
+					<div>
 						<LeftSideBar></LeftSideBar>
 					</div>
-					<div className="grid grid-cols-8 py-20">
+					<div className="grid grid-cols-8 ">
 						<div className="courseList">
-							{categories.map((category) => (
-								<CategoryList
-									key={category.id}
-									category={category}
-								></CategoryList>
+							{/* <h2>this is category list {AllCategories.length}</h2> */}
+							{AllCategories.map((categories) => (
+								<CourseItem
+									key={categories._id}
+									categories={categories}
+								></CourseItem>
 							))}
 						</div>
 					</div>

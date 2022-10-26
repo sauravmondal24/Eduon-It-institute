@@ -2,10 +2,14 @@ import { createBrowserRouter } from 'react-router-dom';
 import Login from '../Auth/LogIn/Login';
 import SignUp from '../Auth/SignUp/SignUp';
 import Blog from '../components/Blog/Blog';
+import CourseDetails from '../components/Courses/CourseDetails';
 import Courses from '../components/Courses/Courses';
+import LeftSideBar from '../components/Courses/LeftSideBar';
 import FAQ from '../components/FAQ/FAQ';
 import Home from '../components/Home/Home';
 import TermsAndCondition from '../components/Others/TermsAndCondition';
+import ErrorPage from '../Error/ErrorPage';
+import Error from '../Error/ErrorPage';
 import Main from '../Layout/Main';
 import PrivateRoute from './Private/PrivateRoute';
 
@@ -26,13 +30,22 @@ export const routes = createBrowserRouter([
 				path: '/signup',
 				element: <SignUp></SignUp>
 			},
+
 			{
-				path: '/courses',
+				path: '/courses/:id',
 				element: (
 					<PrivateRoute>
 						<Courses></Courses>
 					</PrivateRoute>
-				)
+				),
+				loader: ({ params }) =>
+					fetch(`http://localhost:5000/category/${params.id}`)
+			},
+			{
+				path: '/courseDetails/:id',
+				element: <CourseDetails></CourseDetails>,
+				loader: ({ params }) =>
+					fetch(`http://localhost:5000/course/${params.id}`)
 			},
 			{
 				path: '/faq',
@@ -47,5 +60,9 @@ export const routes = createBrowserRouter([
 				element: <TermsAndCondition></TermsAndCondition>
 			}
 		]
+	},
+	{
+		path: '*',
+		element: <ErrorPage></ErrorPage>
 	}
 ]);
