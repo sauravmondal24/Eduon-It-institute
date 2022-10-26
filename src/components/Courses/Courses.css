@@ -19,3 +19,28 @@
 	grid-template-columns: repeat(1, 3fr) 1fr;
 	grid-gap: 15px;
 }
+
+@media only screen and (max-width: 688px) {
+	.coursePage {
+		display: grid;
+		grid-template-columns: repeat(1, 1fr);
+		grid-gap: 15px;
+	}
+
+	.courseList {
+		display: grid;
+		grid-template-columns: repeat(1, 1fr);
+		grid-gap: 15px;
+	}
+
+	.singleCourse {
+		display: grid;
+		grid-template-columns: repeat(1, 1fr);
+		grid-gap: 15px;
+	}
+	.singleCourseImg {
+		width: 50%;
+		height: auto;
+		text-align: left;
+	}
+}

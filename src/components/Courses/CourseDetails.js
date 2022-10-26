@@ -4,7 +4,7 @@ import './Courses.css';
 
 const CourseDetails = () => {
 	const courseDetails = useLoaderData();
-	const { title, details, image_url, category_id } = courseDetails;
+	const { title, details, image_url, total_view } = courseDetails;
 
 	const BannerImg2 = {
 		backgroundImage:
@@ -28,12 +28,16 @@ const CourseDetails = () => {
 				<div className="singleCourse">
 					<div>
 						<div className="card w-full bg-base-100 shadow-xl">
-							<h2 className="card-title text-center pt-5 px-5 text-3xl text-bolder">
+							<h2 className="card-title md:text-center pt-5 px-5 md:text-3xl text-bolder">
 								{title}
 							</h2>
 
 							<figure className="px-10 pt-10">
-								<img src={image_url} alt="Shoes" className="rounded-xl" />
+								<img
+									src={image_url}
+									alt="Shoes"
+									className="rounded-xl md:w-50 singleCourseImg"
+								/>
 							</figure>
 							<div className="card-body items-start ">
 								<h2 className="card-title text-start text-3xl text-bolder text-warning">
@@ -61,7 +65,11 @@ const CourseDetails = () => {
 								Checkout Details
 							</h2>
 							<div className="card-body">
-								<h2 className="card-title">Price</h2>
+								<div className="flex justify-between items-center">
+									<h2 className="card-title">Price</h2>
+									<h2 className="card-title ">${total_view}</h2>
+								</div>
+
 								<hr />
 								<h2 className="card-title">Start</h2>
 								<hr />

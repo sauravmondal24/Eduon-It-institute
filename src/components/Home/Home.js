@@ -2,13 +2,14 @@ import React from 'react';
 import Banner1 from '../../Assets/img/banner-bg-1.png';
 import Banner2 from '../../Assets/img/banner-img-1.jpg';
 import { Link } from 'react-router-dom';
+import './Home.css';
 
 const Home = () => {
 	// https://templates.hibootstrap.com/eduon/default/index.html
 	return (
 		<div>
 			<div
-				className="hero min-h-screen"
+				className="hero min-h-screen "
 				style={{ backgroundImage: `url("${Banner1}")` }}
 			>
 				<div className="hero-overlay bg-opacity-10"></div>
@@ -17,11 +18,11 @@ const Home = () => {
 						<div className="hero-content flex-col lg:flex-row-reverse">
 							<img
 								src={Banner2}
-								className="max-w-lg rounded-lg shadow-2xl "
+								className="md:max-w-lg rounded-lg shadow-2xl "
 								alt=""
 							/>
 							<div>
-								<h1 className="text-6xl font-bold">
+								<h1 className="md:text-6xl font-bold">
 									Study a recognized qualification with the online learning
 									experts
 								</h1>
@@ -40,7 +41,7 @@ const Home = () => {
 			</div>
 
 			<div className="hero min-h-screen bg-base-200">
-				<div className="grid grid-cols-2 gap-4 hero-content flex-col lg:flex-row ">
+				<div className="grid md:grid-cols-2 gap-4 hero-content flex-col lg:flex-row ">
 					<div>
 						<img
 							src="https://templates.hibootstrap.com/eduon/default/assets/img/education-img.png"
@@ -50,7 +51,7 @@ const Home = () => {
 					</div>
 					<div>
 						<h3 className="text-warning">Education For All</h3>
-						<h1 className="text-5xl font-bold">
+						<h1 className="md:text-5xl font-bold">
 							Why create an online course with
 							<span className="text-warning">EDUON</span> ?
 						</h1>
@@ -67,13 +68,13 @@ const Home = () => {
 				</div>
 			</div>
 
-			<div className="container py-20">
-				<h2 className="text-warning text-center text-2xl">Our Teachers</h2>
-				<h2 className=" text-center text-5xl font-bold">
+			{/* <div className="container py-20">
+				<h2 className="text-warning md:text-center text-2xl">Our Teachers</h2>
+				<h2 className=" md:text-center md:text-5xl font-bold">
 					Our international teachers
 				</h2>
-				<div className="grid md:grid-cols-4 gap-2 justify-between pt-10 ">
-					<div className="card w-60 bg-base-100 shadow-xl">
+				<div className="grid md:grid-cols-4 gap-2 md:justify-between pt-10 ">
+					<div className="card  bg-base-100 shadow-xl">
 						<figure>
 							<img
 								src="https://www.marwadiking.com/assets/img/pimg3.jpg"
@@ -91,7 +92,7 @@ const Home = () => {
 							</div>
 						</div>
 					</div>
-					<div className="card w-60 bg-base-100 shadow-xl">
+					<div className="card  bg-base-100 shadow-xl">
 						<figure>
 							<img
 								src="https://www.marwadiking.com/assets/img/pimg3.jpg"
@@ -109,7 +110,7 @@ const Home = () => {
 							</div>
 						</div>
 					</div>
-					<div className="card w-60 bg-base-100 shadow-xl">
+					<div className="card bg-base-100 shadow-xl">
 						<figure>
 							<img
 								src="https://www.marwadiking.com/assets/img/pimg3.jpg"
@@ -127,7 +128,7 @@ const Home = () => {
 							</div>
 						</div>
 					</div>
-					<div className="card w-60 bg-base-100 shadow-xl">
+					<div className="card  bg-base-100 shadow-xl">
 						<figure>
 							<img
 								src="https://www.marwadiking.com/assets/img/pimg3.jpg"
@@ -146,7 +147,7 @@ const Home = () => {
 						</div>
 					</div>
 				</div>
-			</div>
+			</div> */}
 		</div>
 	);
 };
