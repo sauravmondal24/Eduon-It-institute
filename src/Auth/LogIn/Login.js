@@ -1,26 +1,40 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
-import { FaGoogle } from 'react-icons/fa';
+import { FaGoogle, FaGithub } from 'react-icons/fa';
 import { useContext } from 'react';
 import { AuthContext } from '../../Context/AuthProvider';
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const Login = () => {
 	const [error, setError] = useState('');
-	const { googleProviderLogin, signIn } = useContext(AuthContext);
+	const { googleProviderLogin, gitHubProviderLogIn, signIn } =
+		useContext(AuthContext);
 	const navigate = useNavigate();
 	const location = useLocation();
 	const from = location.state?.from?.pathname || '/';
 
 	const googleAuthProvider = new GoogleAuthProvider();
+	const githubAuthProvider = new GithubAuthProvider();
+
 	const handleGoogleSignIn = () => {
 		googleProviderLogin(googleAuthProvider)
 			.then((result) => {
 				const user = result.user;
 				console.log(user);
+				navigate(from, { replace: true });
+			})
+			.catch((error) => console.error('error', error));
+	};
+
+	const handleGitHubSignIn = () => {
+		gitHubProviderLogIn(githubAuthProvider)
+			.then((result) => {
+				const user = result.user;
+				console.log(user);
+				navigate(from, { replace: true });
 			})
 			.catch((error) => console.error('error', error));
 	};
@@ -101,6 +115,15 @@ const Login = () => {
 								>
 									<FaGoogle />
 									Create an account with Google
+								</button>
+							</div>
+							<div className="form-control mt-2">
+								<button
+									onClick={handleGitHubSignIn}
+									className="btn btn-outline btn-primary"
+								>
+									<FaGithub />
+									Create an account with GitHub
 								</button>
 							</div>
 						</form>

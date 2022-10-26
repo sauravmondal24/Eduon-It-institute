@@ -6,7 +6,8 @@ import {
 	onAuthStateChanged,
 	signInWithEmailAndPassword,
 	signInWithPopup,
-	signOut
+	signOut,
+	updateProfile
 } from 'firebase/auth';
 import { useState } from 'react';
 import { useEffect } from 'react';
@@ -24,6 +25,11 @@ const AuthProvider = ({ children }) => {
 		return signInWithPopup(auth, provider);
 	};
 
+	const gitHubProviderLogIn = (provider) => {
+		setLoading(true);
+		return signInWithPopup(auth, provider);
+	};
+
 	const createUser = (email, password) => {
 		setLoading(true);
 		return createUserWithEmailAndPassword(auth, email, password);
@@ -32,6 +38,10 @@ const AuthProvider = ({ children }) => {
 	const signIn = (email, password) => {
 		setLoading(true);
 		return signInWithEmailAndPassword(auth, email, password);
+	};
+
+	const updateUserProfile = (profile) => {
+		return updateProfile(auth.currentUser, profile);
 	};
 
 	const logOut = () => {
@@ -53,8 +63,10 @@ const AuthProvider = ({ children }) => {
 	const authInfo = {
 		user,
 		googleProviderLogin,
+		gitHubProviderLogIn,
 		createUser,
 		signIn,
+		updateUserProfile,
 		logOut,
 		loading
 	};

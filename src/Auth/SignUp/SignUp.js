@@ -7,7 +7,7 @@ import { AuthContext } from '../../Context/AuthProvider';
 const SignUp = () => {
 	const [error, setError] = useState('');
 	const [accepted, setAccepted] = useState(false);
-	const { createUser } = useContext(AuthContext);
+	const { createUser, updateUserProfile } = useContext(AuthContext);
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
@@ -24,11 +24,22 @@ const SignUp = () => {
 				console.log(user);
 				setError('');
 				form.reset();
+				handleUpdateUserProfile(name, photoURL);
 			})
 			.catch((error) => {
 				console.error('error', error);
 				setError(error.message);
 			});
+	};
+
+	const handleUpdateUserProfile = (name, photoURL) => {
+		const profile = {
+			displayName: name,
+			photoURL: photoURL
+		};
+		updateUserProfile(profile)
+			.then(() => {})
+			.catch((error) => console.error(error));
 	};
 
 	const handleAccepted = (event) => {
