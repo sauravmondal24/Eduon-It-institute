@@ -22,7 +22,7 @@ const LeftSideBar = () => {
 								<Link
 									to={`/courses/${category.id}`}
 									key={category.id}
-									className="font-normal text-2xl"
+									className="font-bold text-lg hover:text-green-800 hover:underline text-blue-800"
 								>
 									{category.name}
 								</Link>

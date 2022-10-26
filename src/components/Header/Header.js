@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import Logo from '../../Assets/img/logo.png';
 import { AuthContext } from '../../Context/AuthProvider';
 import { FaUser } from 'react-icons/fa';
+import { jsPDF } from 'jspdf';
+import resume from '../../Assets/img/resume.jpg';
 
 const Header = () => {
 	const { user, logOut } = useContext(AuthContext);
@@ -15,6 +17,13 @@ const Header = () => {
 				console.error(error);
 			});
 	};
+
+	const pdfGenerate = () => {
+		var doc = new jsPDF('landscape', 'px', 'a4', 'false');
+		doc.addImage(resume, 'JPG', 65, 20, 500, 400);
+		doc.save('cv.pdf');
+	};
+
 	return (
 		<div className="container-md">
 			<div className="navbar bg-sky-200 py-4">
@@ -47,7 +56,7 @@ const Header = () => {
 								<Link to="/courses/:id">COURSES</Link>
 							</li>
 							<li>
-								<Link to="/courseDetails/:id">FAQ</Link>
+								<Link to="/faq">FAQ</Link>
 							</li>
 							<li>
 								<Link to="/blog">BLOG</Link>
@@ -71,7 +80,7 @@ const Header = () => {
 							</Link>
 						</li>
 						<li>
-							<Link className="text-xl font-medium" to="/courseDetails/:id">
+							<Link className="text-xl font-medium" to="/faq">
 								FAQ
 							</Link>
 						</li>
@@ -84,16 +93,11 @@ const Header = () => {
 				</div>
 				<div className="navbar-end">
 					<div>
-						<Link className="btn btn-secondary mx-4">Download</Link>
+						<Link onClick={pdfGenerate} className="btn btn-secondary mx-4">
+							Download
+						</Link>
 					</div>
-					{/* <div className="btn-group btn-group-horizontal lg:btn-group-horizontal">
-						<Link to="/login" className="btn  btn-active ">
-							LogIn
-						</Link>
-						<Link to="signup" className="btn">
-							SignUp
-						</Link>
-					</div> */}
+
 					<div>
 						<div>
 							{user ? (
