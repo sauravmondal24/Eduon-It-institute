@@ -31,7 +31,6 @@ const Courses = () => {
 					</div>
 					<div className="grid grid-cols-8 ">
 						<div className="courseList">
-							{/* <h2>this is category list {AllCategories.length}</h2> */}
 							{AllCategories.map((categories) => (
 								<CourseItem
 									key={categories._id}
