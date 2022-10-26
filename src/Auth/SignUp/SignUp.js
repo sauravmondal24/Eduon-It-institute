@@ -6,6 +6,7 @@ import { AuthContext } from '../../Context/AuthProvider';
 
 const SignUp = () => {
 	const [error, setError] = useState('');
+	const [accepted, setAccepted] = useState(false);
 	const { createUser } = useContext(AuthContext);
 
 	const handleSubmit = (event) => {
@@ -28,6 +29,10 @@ const SignUp = () => {
 				console.error('error', error);
 				setError(error.message);
 			});
+	};
+
+	const handleAccepted = (event) => {
+		setAccepted(event.target.checked);
 	};
 	return (
 		<div>
@@ -100,16 +105,28 @@ const SignUp = () => {
 							</div>
 							<div class="mb-3 form-check">
 								<input
+									onClick={handleAccepted}
 									type="checkbox"
 									className="form-check-input checkbox-sm checkbox-sm"
 									id="exampleCheck1"
 								/>
-								<label className="form-check-label" for="exampleCheck1">
-									Accept <Link>terms and condition</Link>
+								<label
+									className="form-check-label text-blue-500"
+									for="exampleCheck1"
+								>
+									Accept
+									<Link
+										to="/terms"
+										className=" underline  hover:decoration-dashed"
+									>
+										terms and condition
+									</Link>
 								</label>
 							</div>
 							<div className="form-control mt-2">
-								<button className="btn btn-primary">SignUP</button>
+								<button className="btn btn-primary" disabled={!accepted}>
+									SignUP
+								</button>
 							</div>
 						</form>
 					</div>

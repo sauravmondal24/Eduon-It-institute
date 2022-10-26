@@ -6,7 +6,7 @@ const TermsAndCondition = () => {
 		<div>
 			<h2>Terms And Condition </h2>
 			<p>
-				Go back to SignUp: <Link to="signup">SignUp</Link>
+				Go back to : <Link to="/signup">SignUp</Link>
 			</p>
 		</div>
 	);
