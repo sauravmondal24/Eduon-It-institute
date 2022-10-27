@@ -7,7 +7,7 @@ const FAQ = () => {
 				FAQ PAGE
 			</h2>
 			<div>
-				<div className="overflow-x-auto w-full">
+				<div className="overflow-x-auto md:w-full">
 					<table className="table w-full">
 						<thead>
 							<tr>

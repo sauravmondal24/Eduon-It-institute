@@ -37,13 +37,13 @@ export const routes = createBrowserRouter([
 					</PrivateRoute>
 				),
 				loader: ({ params }) =>
-					fetch(`http://localhost:5000/category/${params.id}`)
+					fetch(`https://eduon-server-side.vercel.app/category/${params.id}`)
 			},
 			{
 				path: '/courseDetails/:id',
 				element: <CourseDetails></CourseDetails>,
 				loader: ({ params }) =>
-					fetch(`http://localhost:5000/course/${params.id}`)
+					fetch(`https://eduon-server-side.vercel.app/course/${params.id}`)
 			},
 
 			{

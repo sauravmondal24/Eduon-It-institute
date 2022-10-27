@@ -54,9 +54,7 @@ const SignUp = () => {
 					<div className="card flex-shrink-0 w-full max-w-6xl shadow-2xl bg-base-100">
 						<form onSubmit={handleSubmit} className="card-body">
 							<div className="text-center lg:text-left">
-								<h1 className="text-3xl font-bold">
-									Please Create a New Account
-								</h1>
+								<h1 className="text-3xl font-bold">Create a New Account</h1>
 							</div>
 							<div className="form-control">
 								<label className="label">
@@ -67,6 +65,7 @@ const SignUp = () => {
 									type="text"
 									placeholder="Name"
 									className="input input-bordered"
+									required
 								/>
 							</div>
 							<div className="form-control">
@@ -78,6 +77,7 @@ const SignUp = () => {
 									type="text"
 									placeholder="Name"
 									className="input input-bordered"
+									required
 								/>
 							</div>
 							<div className="form-control">
@@ -89,6 +89,7 @@ const SignUp = () => {
 									type="text"
 									placeholder="email"
 									className="input input-bordered"
+									required
 								/>
 							</div>
 							<div className="form-control">
@@ -100,6 +101,7 @@ const SignUp = () => {
 									type="text"
 									placeholder="password"
 									className="input input-bordered"
+									required
 								/>
 
 								<label className="label">

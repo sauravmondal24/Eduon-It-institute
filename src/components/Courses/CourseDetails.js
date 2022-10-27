@@ -36,7 +36,7 @@ const CourseDetails = () => {
 								<img
 									src={image_url}
 									alt="Shoes"
-									className="rounded-xl md:w-72 singleCourseImg"
+									className="rounded-xl min-w-full singleCourseImg"
 								/>
 							</figure>
 							<div className="card-body items-start ">
