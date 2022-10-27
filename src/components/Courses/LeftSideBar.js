@@ -14,7 +14,7 @@ const LeftSideBar = () => {
 	return (
 		<div className="bg-black-100 rounded-lg">
 			<h2 className="bg-white text-2xl font-bold p-3">
-				All Categories {categories.length}
+				All Categories
 				{categories.map((category) => (
 					<>
 						<ul>

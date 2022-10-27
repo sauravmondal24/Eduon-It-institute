@@ -19,17 +19,17 @@ const Courses = () => {
 	return (
 		<div className="bg-cyan-600">
 			<div style={BannerImg}>
-				<h2 className="text-center font-bold pt-40 text-6xl text-neutral-50">
+				<h2 className="text-center font-bold pt-40 text-6xl text-blue-900">
 					Courses
 				</h2>
 			</div>
 
-			<div className="container">
+			<div className="md:container md:mx-auto">
 				<div className="coursePage py-20">
 					<div>
 						<LeftSideBar></LeftSideBar>
 					</div>
-					<div className="grid grid-cols-8 ">
+					<div className="grid md:grid-cols-8 ">
 						<div className="courseList">
 							{AllCategories.map((categories) => (
 								<CourseItem

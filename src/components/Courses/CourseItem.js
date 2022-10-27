@@ -10,7 +10,7 @@ const CourseItem = ({ categories }) => {
 
 	return (
 		<div>
-			<div className="card w-72 bg-base-100 shadow-xl">
+			<div className="card w-72 bg-base-100 shadow-xl courseItemPart">
 				<figure className="px-4 pt-5">
 					<img src={image_url} alt="Shoes" className="rounded-xl" />
 				</figure>

@@ -19,12 +19,12 @@ const CourseDetails = () => {
 	return (
 		<div>
 			<div style={BannerImg2}>
-				<h2 className="text-center font-bold pt-40 text-6xl text-blue-700">
+				<h2 className="text-center font-bold pt-40 text-6xl text-blue-900">
 					Single course
 				</h2>
 			</div>
 
-			<div className="container py-20">
+			<div className="md:container md:mx-auto py-20">
 				<div className="singleCourse">
 					<div>
 						<div className="card w-full bg-base-100 shadow-xl">
@@ -36,7 +36,7 @@ const CourseDetails = () => {
 								<img
 									src={image_url}
 									alt="Shoes"
-									className="rounded-xl md:w-50 singleCourseImg"
+									className="rounded-xl md:w-72 singleCourseImg"
 								/>
 							</figure>
 							<div className="card-body items-start ">

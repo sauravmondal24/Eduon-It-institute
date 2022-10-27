@@ -12,7 +12,6 @@ const Home = () => {
 				className="hero min-h-screen "
 				style={{ backgroundImage: `url("${Banner1}")` }}
 			>
-				<div className="hero-overlay bg-opacity-10"></div>
 				<div className="hero-content text-start text-neutral-content">
 					<div className="hero min-h-screen">
 						<div className="hero-content flex-col lg:flex-row-reverse">
@@ -31,7 +30,7 @@ const Home = () => {
 									Quality education does not need to be expensive. Save up to
 									75% with a scholarship. 100% in English.
 								</p>
-								<Link to="/courses" className="btn btn-warning text-white">
+								<Link to="/courses/:id" className="btn btn-warning text-white">
 									View Courses
 								</Link>
 							</div>
@@ -61,16 +60,16 @@ const Home = () => {
 							ipsum suspendisse ultrices gravida. Lorem ipsum dolor sit amet,
 							consectetur adipiscing elit, sed do eiusmod tempor incididunt.
 						</p>
-						<Link to="/courses" className="btn btn-warning text-white">
+						<Link to="/courses/:id" className="btn btn-warning text-white">
 							View Courses
 						</Link>
 					</div>
 				</div>
 			</div>
 
-			{/* <div className="container py-20">
-				<h2 className="text-warning md:text-center text-2xl">Our Teachers</h2>
-				<h2 className=" md:text-center md:text-5xl font-bold">
+			<div className="md:container md:mx-auto py-20">
+				<h2 className="text-warning text-center text-2xl">Our Teachers</h2>
+				<h2 className=" text-center md:text-5xl font-bold">
 					Our international teachers
 				</h2>
 				<div className="grid md:grid-cols-4 gap-2 md:justify-between pt-10 ">
@@ -147,7 +146,7 @@ const Home = () => {
 						</div>
 					</div>
 				</div>
-			</div> */}
+			</div>
 		</div>
 	);
 };

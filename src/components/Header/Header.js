@@ -6,6 +6,8 @@ import { AuthContext } from '../../Context/AuthProvider';
 import { FaUser } from 'react-icons/fa';
 import { jsPDF } from 'jspdf';
 import resume from '../../Assets/img/resume.jpg';
+import './Header.css';
+import UserProfile from './UserProfile';
 
 const Header = () => {
 	const { user, logOut } = useContext(AuthContext);
@@ -61,6 +63,7 @@ const Header = () => {
 							<li>
 								<Link to="/blog">BLOG</Link>
 							</li>
+							<UserProfile></UserProfile>
 						</ul>
 					</div>
 					<Link to="/" className="btn btn-ghost normal-case text-xl">
@@ -91,51 +94,9 @@ const Header = () => {
 						</li>
 					</ul>
 				</div>
-				<div className="navbar-end">
-					<div>
-						<Link onClick={pdfGenerate} className="btn btn-secondary mx-4">
-							Download
-						</Link>
-					</div>
 
-					<div>
-						<div>
-							{user ? (
-								<>
-									<span>{user?.displayName}</span>
-									<button onClick={handleLogOut} className="btn btn-warning">
-										LogOut
-									</button>
-								</>
-							) : (
-								<>
-									<div className="btn-group btn-group-horizontal lg:btn-group-horizontal">
-										<Link to="/login" className="btn  btn-active ">
-											LogIn
-										</Link>
-										<Link to="signup" className="btn">
-											SignUp
-										</Link>
-									</div>
-								</>
-							)}
-						</div>
-					</div>
-
-					<div className="text-center">
-						<Link>
-							{user?.photoURL ? (
-								<img
-									className="mask mask-circle"
-									style={{ height: '30px' }}
-									src={user.photoURL}
-									alt=""
-								/>
-							) : (
-								<FaUser></FaUser>
-							)}
-						</Link>
-					</div>
+				<div className="navbar-end profileSection">
+					<UserProfile></UserProfile>
 				</div>
 			</div>
 		</div>

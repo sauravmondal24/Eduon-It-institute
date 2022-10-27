@@ -1,13 +1,14 @@
 import React from 'react';
 import { useState } from 'react';
 import { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
 
 const SignUp = () => {
 	const [error, setError] = useState('');
 	const [accepted, setAccepted] = useState(false);
 	const { createUser, updateUserProfile } = useContext(AuthContext);
+	const navigate = useNavigate();
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
@@ -25,6 +26,7 @@ const SignUp = () => {
 				setError('');
 				form.reset();
 				handleUpdateUserProfile(name, photoURL);
+				navigate('/');
 			})
 			.catch((error) => {
 				console.error('error', error);
@@ -136,7 +138,7 @@ const SignUp = () => {
 							</div>
 							<div className="form-control mt-2">
 								<button className="btn btn-primary" disabled={!accepted}>
-									SignUP
+									SignUp
 								</button>
 							</div>
 						</form>
